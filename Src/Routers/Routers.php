@@ -21,6 +21,9 @@ class Routers {
         $router->get("/", "IndexController:index");
         $router->get("/test", "IndexController:test");
 
+        $router->group("oops")->namespace("Src\Controller\Error");
+        $router->get("/{errocode}", "EController:notFound");
+
         $router->dispatch();
         
         if($router->error()){
@@ -29,7 +32,16 @@ class Routers {
     }
 
     public function post(){
+        $router = $this->startServer();
 
+        $router->group("oops")->namespace("Src\Controller\Error");
+        $router->get("/{errocode}", "EController:notFound");
+
+        $router->dispatch();
+        
+        if($router->error()){
+            $router->redirect("/oops/{$router->error()}");
+        }
     }
 
 }
