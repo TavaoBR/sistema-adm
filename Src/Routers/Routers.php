@@ -19,6 +19,7 @@ class Routers {
         $router = $this->startServer();
         $router->group(null)->namespace("Src\Controller");
         $router->get("/", "IndexController:index");
+        $router->get("/test", "IndexController:test");
 
         $router->dispatch();
         
