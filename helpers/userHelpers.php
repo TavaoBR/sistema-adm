@@ -9,11 +9,11 @@ function validateUser(){
  }
 
 
-function avatarUser(int $id)
+/*function avatarUser(int $id)
 {
   $usuario = new \Src\GET\Usuario($id);
   return $usuario->avatar();
-} 
+} */
 
 
 /* function configTemaColor(){

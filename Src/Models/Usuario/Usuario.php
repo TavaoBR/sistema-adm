@@ -40,6 +40,10 @@ class Usuario {
         $this->user->update("id", $this->id, ["tentativas" => "1"]);
     }
 
+    public function criarToken(){
+        $this->user->update("id", $this->id, ["token" => $this->token]);
+    }
+
     public function ById(): array{
         return $this->user->findBy("id", $this->id);
     }
